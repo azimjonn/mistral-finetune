@@ -177,4 +177,4 @@ tests/fixtures
 mistral_models/
 
 # run dir
-run_dir/
+run_dir*/
