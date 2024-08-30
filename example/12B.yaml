@@ -1,0 +1,39 @@
+# data
+data:
+  instruct_data: "/home/user/azimjon/uzllm/mistral_data/itune_train.jsonl:1"  # Fill
+  data: "/home/user/azimjon/uzllm/mistral_data/pretrain.jsonl:20"  # Optionally fill with pretraining data 
+  eval_instruct_data: "/home/user/azimjon/uzllm/mistral_data/itune_valid.jsonl"  # Optionally fill
+  # shuffle: True
+
+# model
+model_id_or_path: "/home/user/azimjon/uzllm/mistral-finetune/mistral_models/mistral-nemo-instruct-2407/"
+lora:
+  enable: True
+  rank: 128
+
+# optim
+seq_len: 10000
+batch_size: 1
+num_microbatches: 4
+max_steps: 30000
+optim:
+  lr: 6.e-6
+  weight_decay: 0.1
+  pct_start: 0.05
+
+# other
+seed: 0
+log_freq: 1
+eval_freq: 500
+no_eval: False
+ckpt_freq: 1000
+num_ckpt_keep: 30
+save_adapters: True  # save only trained LoRA adapters. Set to `False` to merge LoRA adapter into the base model and save full fine-tuned model
+
+run_dir: "/home/user/azimjon/uzllm/mistral-finetune/run_dir"  # Fill
+
+wandb:
+  project: "Mistral_12B" # your wandb project name
+  run_name: "Test2: Pretraining+Instruction Tuning+uzWiki" # your wandb run name
+  key: "8bf36043997877288c4f7b13a6b77e497fbe2b4c" # your wandb api key
+  offline: False

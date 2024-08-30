@@ -172,3 +172,9 @@ eval/eval-*
 
 # Symlinks
 tests/fixtures
+
+# model weigths
+mistral_models/
+
+# run dir
+run_dir/
